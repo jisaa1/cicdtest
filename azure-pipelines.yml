@@ -8,7 +8,7 @@ trigger:
 
 pool:
   vmImage: 'windows-latest'
-
+  
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
@@ -26,6 +26,7 @@ steps:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    msbuildArgs: '/p:TargetFrameworkVersion=8.0'
 
 - task: VSTest@2
   inputs:
